@@ -15,6 +15,8 @@
   <link rel="stylesheet" href="carousel.css">
   <link rel="stylesheet" href="les.css">
 
+  <script src="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/js/swiffy-slider.min.js" crossorigin="anonymous" defer></script>
+  <link href="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/css/swiffy-slider.min.css" rel="stylesheet" crossorigin="anonymous">
 
   <noscript><div><img src="https://mc.yandex.ru/watch/99978701" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
   <!-- /Yandex.Metrika counter -->
@@ -273,7 +275,42 @@
         line-height: 1.5;
     }
 
+    .slider-card {
+      box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
+      height: 100%;
+      margin-bottom: 10px;
+    }
+    .slider-card-holder {
+      height: 100%;
+    }
+    .preps-slider {
+      width: 85vw;
+      max-width: 1400px;
+      position: relative;
+      overflow: hidden;
+      padding: 20px;
+    }
+    @media (min-width: 1275px) {
+      .slider-item-show-n-preps {
+        --swiffy-slider-item-count: 4;
+      }
+    }
+    @media (max-width: 1275px) {
+      .slider-item-show-n-preps {
+        --swiffy-slider-item-count: 2;
+      }
+    }
+    @media (max-width: 600px) {
+      .slider-item-show-n-preps {
+        --swiffy-slider-item-count: 1;
+      }
+    }
+    .preps-slider-container {
+      display: grid;
+      place-items: center;
+    }
   </style>
+
 </head>
 
 <!-- Google tag (gtag.js) -->
@@ -382,7 +419,7 @@
     <h2 class="w3-center">ОТЗЫВЫ С ПРОШЛЫХ ШКОЛ</h2>
     <div id="reviews-small" class="show-mobile w3-container" style="padding:64px 16px">
       <div class="crsl-container" slides-per-page="1">
-        <div class="slider-container">
+        <div class="slider-container-old">
           <span class="btn"></span>
           <div class="slider">
             <div class="slide w3-card">
@@ -671,11 +708,11 @@
   <div class="w3-container" style="padding:64px 16px" id="team">
     <h3 class="w3-center w3-content">Наши лекторы и преподаватели &mdash; студенты, выпускники и сотрудники ведущих вузов России и Европы, популяризаторы науки. Это  профессионалы, увлечённые своим делом и стремящиеся заинтересовать им школьников.</h3>
     <p class="w3-center w3-large">Вот некоторые из них:</p>
-    <div class="crsl-container" slides-per-page="auto">
-    <div class="slider-container">
-      <span class="btn btn-left"></span>
-      <div class="slider">
-        <div class="slide w3-card">
+    <div class="preps-slider-container">
+    <div class="swiffy-slider preps-slider slider-nav-visible slider-item-reveal slider-item-show-n-preps slider-indicators-dark slider-indicators-outside slider-indicators-round slider-nav-dark slider-nav-outside">
+      <ul class="slider-container">
+        <li><div class="slider-card-holder">
+          <div class="slider-card">
           <img src="img/preps/Seva.jpg" alt="Vsevolod Lander" style="width:100%">
           <div class="w3-container regalii">
             <h3>Всеволод Ландер</h3>
@@ -683,86 +720,115 @@
             <p class="w3-opacity">Астрофизик, популяризатор астрономии, сотрудник МГУ, астроном-наблюдатель Кавказской Горной Обсерватории</p>
           </div>
         </div>
-        <div class="slide w3-card">
-          <img src="img/preps/Alisa.jpeg" alt="Alisa Mosolova" style="width:100%">
-          <div class="w3-container regalii">
-            <h3>Алиса Мосолова</h3>
-            <h6>Руководитель гуманитарного отделения</h6>
-            <p class="w3-opacity">Выпускница ФиПЛ РГГУ, наставник в Фоксфорде, координатор факультатива по лингвистике при РГГУ и МЦНМО</p>
+        </div></li>
+        <li><div class="slider-card-holder">
+          <div class="slider-card">
+            <img src="img/preps/Alisa.jpeg" alt="Alisa Mosolova" style="width:100%">
+            <div class="w3-container regalii">
+              <h3>Алиса Мосолова</h3>
+              <h6>Руководитель гуманитарного отделения</h6>
+              <p class="w3-opacity">Выпускница ФиПЛ РГГУ, наставник в Фоксфорде, координатор факультатива по лингвистике при РГГУ и МЦНМО</p>
+            </div>
           </div>
+        </div></li>
+        <li><div class="slider-card-holder">
+          <div class="slider-card">
+            <img src="img/preps/Dariya.jpg" alt="Daria Triana-Rivera" style="width:100%">
+            <div class="w3-container regalii">
+              <h3>Дария Триана-Ривера</h3>
+              <h6>Руководитель физического отделения</h6>
+              <p class="w3-opacity">Выпускница РАНХиГС и РГГУ, медицинский и научный журналист, психолог</p>
+            </div>
         </div>
-        <div class="slide w3-card">
-          <img src="img/preps/Dariya.jpg" alt="Daria Triana-Rivera" style="width:100%">
-          <div class="w3-container regalii">
-            <h3>Дария Триана-Ривера</h3>
-            <h6>Руководитель физического отделения</h6>
-            <p class="w3-opacity">Выпускница РАНХиГС и РГГУ, медицинский и научный журналист, психолог</p>
+        </div></li>
+        <li><div class="slider-card-holder">
+          <div class="slider-card">
+            <img src="img/preps/Ira.jpg" alt="Irina Borodina" style="width:100%">
+            <div class="w3-container regalii">
+              <h3>Ирина Бородина</h3>
+              <h6>Руководитель биологического отделения</h6>
+              <p class="w3-opacity">Руководитель биологического отделения, врач-биофизик (РНИМУ им.Н.И.Пирогова), научный сотрудник ФХМ ФМБА</p>
+            </div>
           </div>
-        </div>
-        <div class="slide w3-card">
-          <img src="img/preps/Ira.jpg" alt="Irina Borodina" style="width:100%">
-          <div class="w3-container regalii">
-            <h3>Ирина Бородина</h3>
-            <h6>Руководитель биологического отделения</h6>
-            <p class="w3-opacity">Руководитель биологического отделения, врач-биофизик (РНИМУ им.Н.И.Пирогова), научный сотрудник ФХМ ФМБА</p>
+        </div></li>
+        <li><div class="slider-card-holder">
+          <div class="slider-card">
+            <img src="img/preps/Yarik.jpg" alt="Yaroslav Rebenko" style="width:100%">
+            <div class="w3-container regalii">
+              <h3>Ярик Ребенко</h3>
+              <h6>Руководитель математического отделения</h6>
+              <p class="w3-opacity">Выпускник факультета компьютерных наук НИУ ВШЭ, программист, популяризатор математики</p>
+            </div>
           </div>
-        </div>
-        <div class="slide w3-card">
-          <img src="img/preps/Yarik.jpg" alt="Yaroslav Rebenko" style="width:100%">
-          <div class="w3-container regalii">
-            <h3>Ярик Ребенко</h3>
-            <h6>Руководитель математического отделения</h6>
-            <p class="w3-opacity">Выпускник факультета компьютерных наук НИУ ВШЭ, программист, популяризатор математики</p>
+        </div></li>
+        <li><div class="slider-card-holder">
+          <div class="slider-card">
+            <img src="img/preps/Ksyusha.jpg" alt="Kseniya Matova" style="width:100%">
+            <div class="w3-container regalii">
+              <h3>Ксения Матова</h3>
+              <h6>Руководитель тьюторской службы</h6>
+              <p class="w3-opacity"> Психолог, выпускница факультета психологии МГУ им. М. В. Ломоносова, работает с СДВГ, депрессией и выгоранием</p>
+            </div>
           </div>
-        </div>
-        <div class="slide w3-card">
-          <img src="img/preps/Ksyusha.jpg" alt="Kseniya Matova" style="width:100%">
-          <div class="w3-container regalii">
-            <h3>Ксения Матова</h3>
-            <h6>Руководитель тьюторской службы</h6>
-            <p class="w3-opacity"> Психолог, выпускница факультета психологии МГУ им. М. В. Ломоносова, работает с СДВГ, депрессией и выгоранием</p>
+        </div></li>
+        <li><div class="slider-card-holder">
+          <div class="slider-card">
+            <img src="img/preps/Zhenya.jpg" alt="Evgeny Lomov" style="width:100%">
+            <div class="w3-container regalii">
+              <h3>Евгений Ломов</h3>
+              <p class="w3-opacity"> Выпускник магистратуры Центра квантовых технологий МГУ, физик-оптик, системный программист, специалист по квантовым вычислениям и компиляторным технологиям</p>
+            </div>
           </div>
-        </div>
-        <div class="slide w3-card">
-          <img src="img/preps/Zhenya.jpg" alt="Evgeny Lomov" style="width:100%">
-          <div class="w3-container regalii">
-            <h3>Евгений Ломов</h3>
-            <p class="w3-opacity"> Выпускник магистратуры Центра квантовых технологий МГУ, физик-оптик, системный программист, специалист по квантовым вычислениям и компиляторным технологиям</p>
+        </div></li>
+        <li><div class="slider-card-holder">
+          <div class="slider-card">
+            <img src="img/preps/Niyaz.jpg" alt="Niyaz Kireev" style="width:100%">
+            <div class="w3-container regalii">
+              <h3>Нияз Киреев</h3>
+              <h6> </h6>
+              <p class="w3-opacity">Лингвист, студент École normale supérieure в Париже, лауреат премии им. Чарльза Таунсэнда, преподаватель Сириуса, ЛЛШ и других школ</p>
+            </div>
           </div>
-        </div>
-        <div class="slide w3-card">
-          <img src="img/preps/Niyaz.jpg" alt="Niyaz Kireev" style="width:100%">
-          <div class="w3-container regalii">
-            <h3>Нияз Киреев</h3>
-            <h6> </h6>
-            <p class="w3-opacity">Лингвист, студент École normale supérieure в Париже, лауреат премии им. Чарльза Таунсэнда, преподаватель Сириуса, ЛЛШ и других школ</p>
+        </div></li>
+        <li><div class="slider-card-holder">
+          <div class="slider-card">
+            <img src="img/preps/Vanya.jpg" alt="Ivan Yakovlev" style="width:100%">
+            <div class="w3-container regalii">
+              <h3>Иван Яковлев</h3>
+              <p class="w3-opacity">Выпускник математического факультета НИУ ВШЭ, администратор телеграм-канала «Кроссворд Тьюринга», преподавал в НМУ, ЛШСМ, на MIT Yulia's Dream, в 57-й и 179-й школах</p>
+            </div>
           </div>
-        </div>
-        <div class="slide w3-card">
-          <img src="img/preps/Vanya.jpg" alt="Ivan Yakovlev" style="width:100%">
-          <div class="w3-container regalii">
-            <h3>Иван Яковлев</h3>
-            <p class="w3-opacity">Выпускник математического факультета НИУ ВШЭ, администратор телеграм-канала «Кроссворд Тьюринга», преподавал в НМУ, ЛШСМ, на MIT Yulia's Dream, в 57-й и 179-й школах</p>
+        </div></li>
+        <li><div class="slider-card-holder">
+          <div class="slider-card">
+            <img src="img/preps/Polya.jpg" alt="Polina Romanova" style="width:100%">
+            <div class="w3-container regalii">
+              <h3>Полина Романова</h3>
+              <p class="w3-opacity">Выпускница совместного бакалавриата факультета математики ВШЭ и ЦПМ, работала ассистентом по спецматематике в школе 179, популяризатор математики</p>
+            </div>
           </div>
-        </div>
-        <div class="slide w3-card">
-          <img src="img/preps/Polya.jpg" alt="Polina Romanova" style="width:100%">
-          <div class="w3-container regalii">
-            <h3>Полина Романова</h3>
-            <p class="w3-opacity">Выпускница совместного бакалавриата факультета математики ВШЭ и ЦПМ, работала ассистентом по спецматематике в школе 179, популяризатор математики</p>
+        </div></li>
+        <li><div class="slider-card-holder">
+          <div class="slider-card">
+            <img src="img/preps/Nastya.jpg" alt="Anastasiya Kalugina" style="width:100%">
+            <div class="w3-container regalii">
+              <h3>Анастасия Калугина</h3>
+              <p class="w3-opacity">Выпускница биологического факультета МГУ, зоолог позвоночных, учитель высшей категории, преподаёт в профильных биологических классах</p>
+            </div>
           </div>
-        </div>
-        <div class="slide w3-card">
-          <img src="img/preps/Nastya.jpg" alt="Anastasiya Kalugina" style="width:100%">
-          <div class="w3-container regalii">
-            <h3>Анастасия Калугина</h3>
-            <p class="w3-opacity">Выпускница биологического факультета МГУ, зоолог позвоночных, учитель высшей категории, преподаёт в профильных биологических классах</p>
-          </div>
-        </div>
+        </div></li>
+      </ul>
+
+      <button type="button" class="slider-nav"></button>
+      <button type="button" class="slider-nav slider-nav-next"></button>
+
+      <div class="slider-indicators">
+          <button class="active"></button>
+          <button></button>
+          <button></button>
       </div>
-      <span class="btn btn-right"></span>
     </div>
-    </div>
+    </div>"
     <p class="w3-center w3-large w3-content"> Кроме того, на школе есть сотрудники-психологи, которые позаботятся о комфорте взрослых и детей на школе, а также расскажут о психологии и коммуникации и проведут интересные групповые занятия и тренинги. </p>
   </div>
 

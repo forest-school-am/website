@@ -126,18 +126,53 @@
       background-color:var(--lescolor-add-bg);
     }
 
-    @import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;600&display=swap');
+    #reviews-read-more {
+      background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 30%, rgba(255,255,255,0) 100%);
+      display: flex;
+      justify-content: center;
+      padding-bottom: 1em;
+      padding-top: 1em;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      font-weight: bolder;
+      text-shadow: 0px 0px 30px white;
+    }
+    #reviews-read-less {
+      background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 30%, rgba(255,255,255,0) 100%);
+      display: flex;
+      justify-content: center;
+      padding-bottom: 1em;
+      padding-top: 1em;
+      width: 100%;
+      font-weight: bolder;
+      text-shadow: 0px 0px 30px white;
+    }
 
+    .hidden {
+      display: none;
+      visibility: hidden;
+    }
+    .reviews-outerdiv--collapsed {
+      max-height: 75vh;
+      overflow-y: hidden;
+    }
 
 
     @media (min-width: 1310px) {
-      .outerdiv
+      .reviews-outerdiv
       {
-          display: flex;
-          align-items: center;
-          justify-content: center;
+        display: flex;
+        /*align-items: center;*/
+        justify-content: center;
+        overflow-x: hidden;
       }
-      .innerdiv
+      .reviews-outerdiv--collapsed {
+        max-height: 80vh;
+        overflow-y: hidden;
+      }
+      .reviews-innerdiv
       {
           display: grid;
           grid-gap: 1.5em;
@@ -145,7 +180,7 @@
           grid-template-columns: repeat(4,20em);
         overflow: visible;
       }
-      .eachdiv
+      .reviews-eachdiv
       {
           padding: 1rem 2rem;
           border-radius: 0.8rem;
@@ -408,12 +443,12 @@
   <div id="reviews">
     <h2 class="w3-center">ОТЗЫВЫ С ПРОШЛЫХ ШКОЛ</h2>
     <div id="reviews-large" class="w3-container" style="padding: 64px 16px">
-      <div class="swiffy-slider slider-nav-visible slider-nav-touch slider-item-show3 slider-indicators-dark slider-indicators-outside slider-indicators-round slider-nav-dark slider-nav-outside
-                  outerdiv">
+      <div id="reviews-slider" class="swiffy-slider slider-nav-visible slider-nav-touch slider-item-show3 slider-indicators-dark slider-indicators-outside slider-indicators-round slider-nav-dark slider-nav-outside
+                  reviews-outerdiv reviews-outerdiv--collapsed">
         <div class="slider-container
-                    innerdiv">
+                    reviews-innerdiv">
           <!-- div1 -->
-          <div class="lera-review eachdiv">
+          <div class="lera-review reviews-eachdiv">
             <div class="userdetails">
               <div class="detbox">
                 <p class="name">Лера, 8 класс</p>
@@ -426,7 +461,7 @@
             </div>
           </div>
           <!-- div2 -->
-          <div class="varya-review eachdiv">
+          <div class="varya-review reviews-eachdiv">
             <div class="userdetails">
               <div class="detbox">
                 <p class="name">Варя, 10 класс</p>
@@ -439,7 +474,7 @@
             </div>
           </div>
           <!-- div3 -->
-          <div class="david-review eachdiv">
+          <div class="david-review reviews-eachdiv">
             <div class="userdetails">
               <div class="detbox">
                 <p class="name">Давид, 11 класс</p>
@@ -454,7 +489,7 @@
             </div>
           </div>
           <!-- div4 -->
-          <div class="aleksandr-review eachdiv">
+          <div class="aleksandr-review reviews-eachdiv">
             <div class="userdetails">
               <div class="detbox">
                 <p class="name">Александр, 10 класс</p>
@@ -470,7 +505,7 @@
             </div>
           </div>
           <!-- div5 -->
-          <div class="ekaterina-review eachdiv">
+          <div class="ekaterina-review reviews-eachdiv">
             <div class="userdetails">
               <div class="detbox">
                 <p class="name">Екатерина</p>
@@ -483,7 +518,7 @@
             </div>
           </div>
           <!-- div6 -->
-          <div class="asi-review eachdiv">
+          <div class="asi-review reviews-eachdiv">
             <div class="userdetails">
               <div class="detbox">
                 <p class="name">Аси, 8 класс</p>
@@ -495,7 +530,7 @@
             </div>
           </div>
           <!-- div7 -->
-          <div class="natalia-review eachdiv">
+          <div class="natalia-review reviews-eachdiv">
             <div class="userdetails">
               <div class="detbox">
                 <p class="name">Наталья</p>
@@ -507,7 +542,7 @@
             </div>
           </div>
           <!-- div8 -->
-          <div class="anna-review eachdiv">
+          <div class="anna-review reviews-eachdiv">
             <div class="userdetails">
               <div class="detbox">
                 <p class="name">Анна</p>
@@ -523,7 +558,17 @@
         </div>
         <button type="button" class="slider-nav review-nav-element"></button>
         <button type="button" class="slider-nav slider-nav-next review-nav-element"></button>
+        <div id="reviews-read-more" onclick="(() => {
+          document.getElementById('reviews-read-less').classList.remove('hidden');
+          document.getElementById('reviews-read-more').classList.add('hidden');
+          document.getElementById('reviews-slider').classList.remove('reviews-outerdiv--collapsed');
+        })()">Читать дальше</div>
       </div>
+      <div id="reviews-read-less" class="hidden" onclick="(() => {
+          document.getElementById('reviews-read-more').classList.remove('hidden');
+          document.getElementById('reviews-read-less').classList.add('hidden');
+          document.getElementById('reviews-slider').classList.add('reviews-outerdiv--collapsed');
+        })()">Свернуть</div>
     </div>
   </div>
 

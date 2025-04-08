@@ -394,6 +394,18 @@
         transform: scale(-1, 1);
       }
     }
+
+    .enroll-button {
+      box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.75);
+      background-color: var(--lescolor-accent-bg);
+    }
+    .table-icon {
+      padding-right: 1em;
+      text-align: right;
+    }
+    .high-break {
+      margin-bottom: 1.5em;
+    }
   </style>
 
 </head>
@@ -467,7 +479,21 @@
     <div class="w3-row-padding is-style-reverse-mobile">
       <div class="w3-col l8" style="padding:10px 0px">
         <h3>ГДЕ И КОГДА</h3>
-        <p class="w3-large">В 2025 году «Лес» пройдет в Армении, неподалеку от города Гюмри в Ширакском регионе. Участники школы будут проживать в палаточном лагере в живописном лесу на склоне горы. На территории лагеря есть источник питьевой воды, туалеты, души, также предоставлен доступ к электричеству и вайфай. Предполагаемые <strong> даты проведения школы &mdash; с 4 по 28 августа </strong>, возможно изменение дат не более чем на 1 день. Точные даты проведения будут объявлены в конце апреля.</p>
+        <table>
+          <tr>
+            <td class="table-icon"><i class="fa-solid fa-map-location-dot"></i></td><td>Армения, неподалеку от города Гюмри в Ширакском регионе.</td>
+          </tr>
+          <tr>
+            <td class="table-icon"><i class="fa-solid fa-campground"></i></td><td>Участники школы будут проживать в палаточном лагере в живописном лесу на склоне горы.</td>
+          </tr>
+          <tr>
+            <td class="table-icon"><i class="fa-solid fa-calendar-days"></i></td><td>Даты проведения школы &mdash; с 4 по 28 августа.</td>
+          </tr>
+          <tr>
+            <td class="table-icon"><i class="fa-solid fa-plug"></i></td><td>На территории лагеря есть источник питьевой воды, туалеты, души, также предоставлен доступ к электричеству и вайфай.</td>
+          </tr>
+        </table>
+
       </div>
       <div class="w3-col w3-center l4">
         <img class="w3-image w3-round-large" src="img/photo_2024-04-01_13-40-14.jpg" alt="Buildings" style="width:90%">
@@ -483,9 +509,14 @@
       </div>
       <div class="w3-col l8" style="padding:10px 0px">
         <h3>ЖИЗНЬ НА ШКОЛЕ</h3>
-        <p class="w3-large">В “Лесу” на протяжении всего дня проходят занятия &mdash; как научные лекции, так и более прикладные и творческие активности. Все занятия проходят в неформальной обстановке, их цель - заинтересовать школьников той или иной областью науки.
-        Школьники сами формируют свое расписание и выбирают, какие курсы посещать. Во внеучебное время у ребят есть возможность поиграть в настольные игры, попеть песни у костра и погулять по окрестностям.
-        Также на школе есть тьюторы &mdash; люди, которые помогают ребенку адаптироваться к условиям жизни на школе, составить индивидуальный учебный план и разобраться с любыми возникающими вопросами.</p>
+        <p class="w3-large">
+          В “Лесу” на протяжении всего дня проходят занятия &mdash; как научные лекции, так и более прикладные и творческие активности.<br class="high-break">
+          Все занятия проходят в неформальной обстановке, их цель - заинтересовать школьников той или иной областью науки.<br class="high-break">
+          Школьники сами формируют свое расписание и выбирают, какие курсы посещать.<br class="high-break">
+          Во внеучебное время у ребят есть возможность поиграть в настольные игры, попеть песни у костра и погулять по окрестностям.<br class="high-break">
+          Также на школе есть тьюторы &mdash; люди, которые помогают ребенку адаптироваться к условиям жизни на школе, составить индивидуальный учебный план и разобраться с любыми возникающими вопросами.
+        </p>
+        <a href="https://t.me/Forest_coordinator" class="w3-button lescolor-accent w3-xlarge enroll-button" target="_blank">Задать вопрос</a>
       </div>
     </div>
   </div>
@@ -691,6 +722,7 @@
       </div>
     </div>
     <p class="w3-center w3-large w3-content">Каждый школьник поступает на конкретное отделение, но это не мешает посещать абсолютно любые курсы, которые читаются на школе.</p>
+    <div style="display: flex; justify-content: center"><a href="https://forms.gle/RhYWJfAzuTA3jNEZ7" class="w3-button lescolor-accent w3-xlarge enroll-button" target="_blank">ХОЧУ ВСЁ ЗНАТЬ!</a></div>
   </div>
 
   <!-- преподы -->
@@ -856,7 +888,7 @@
   <div class="w3-container lescolor-main w3-center" style="padding:64px 16px" id="apply">
     <h3 class="w3-center">КАК ПОПАСТЬ В "ЛЕС"</h3>
     <p class="w3-center w3-large w3-content">В 2025 году школа набирает подростков 14-18 лет. Подать заявку могут школьники из любой страны мира, но учитывайте, что школа проходит на русском языке. Чтобы стать участником школы “Лес” и поехать с нами в Армению, необходимо пройти собеседование. На собеседовании мы оцениваем, насколько школьнику будет комфортно на школе и подойдет ли ему наша учебная программа. Чтобы подать заявку на участие в школе, заполните форму по ссылке:</p>
-    <a href="https://forms.gle/RhYWJfAzuTA3jNEZ7" class="w3-button lescolor-accent w3-xlarge" target="_blank">ХОЧУ В "ЛЕС"!</a>
+    <a href="https://forms.gle/RhYWJfAzuTA3jNEZ7" class="w3-button lescolor-accent w3-xlarge enroll-button" target="_blank">ХОЧУ В "ЛЕС"!</a>
   <!--   <p class="w3-center w3-xlarge w3-content">Основной этап набора участников закончен, но подать заявку всё ещё можно!</p> -->
     <p class="w3-center w3-large w3-content">После заполнения формы с вами свяжется координатор набора, который ответит на все вопросы, подробнее расскажет о школе и о том, как проходит отбор. </p><br>
     <p class="w3-center w3-xlarge w3-content">Если у вас остались вопросы, задайте их нам в <a href="https://t.me/Forest_coordinator" target="_blank">телеграме</a> или напишите нам на почту: <a href="mailto:admin@gws.forest-school.am">admin@gws.forest-school.am</a></p>
@@ -912,6 +944,7 @@
       </div>
     </div>
   </div>
+    <a href="https://t.me/Forest_coordinator" style="margin-top: 2em" class="w3-button lescolor-accent w3-xlarge enroll-button" target="_blank">Остались вопросы?</a>
   </div>
 </div>
 

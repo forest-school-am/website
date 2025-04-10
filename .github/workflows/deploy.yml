@@ -1,12 +1,12 @@
-on: 
-  push:
-    branches:
-      master
+on:
+  release:
+    types: [published]
   workflow_dispatch:
-name: Deploy website on push
+name: Deploy website on release
 jobs:
   web-deploy:
     name: Deploy
+    environment: deploy
     runs-on: ubuntu-latest
     steps:
     - name: Checkout

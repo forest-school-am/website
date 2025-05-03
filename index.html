@@ -423,10 +423,24 @@
     .high-break {
       margin-bottom: 1.5em;
     }
-
+    @media (min-width: 1675px) {
+      .token-holder-config {
+        --n-columns: 3;
+      }
+    }
+    @media (max-width: 1675px) {
+      .token-holder-config {
+        --n-columns: 2;
+      }
+    }
+    @media (max-width: 1000px) {
+      .token-holder-config {
+        --n-columns: 1;
+      }
+    }
     .token-holder {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: repeat(var(--n-columns), minmax(0, 1fr));
       column-gap: 3em;
       row-gap: 1em;
       padding: 1em;
@@ -1005,7 +1019,7 @@
   </div>
   <div class="w3-container" style="padding:64px 16px" id="partners">
     <h3 class="w3-center">НАШИ ПАРТНЁРЫ</h3>
-    <div class="token-holder">
+    <div class="token-holder-config token-holder">
       <a href="https://t.me/turings_crossword" class="partner-token button" target="_blank">
         <div class="partner-token__logo">
           <img src="/img/crossword.jpg" alt="" class="partner-token__square-image"></img>

@@ -403,6 +403,18 @@
       transform: scale(1.07);
     }
 
+    .button {
+      box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.16);
+      transition: transform .1s;
+    }
+
+    .button:hover {
+      transform: scale(1.02);
+    }
+    .button:active {
+      transform: scale(1);
+    }
+
     .table-icon {
       padding-right: 1em;
       text-align: right;
@@ -411,6 +423,46 @@
     .high-break {
       margin-bottom: 1.5em;
     }
+
+    .token-holder {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      column-gap: 3em;
+      row-gap: 1em;
+      padding: 1em;
+    }
+    .partner-token {
+      display: flex;
+      text-decoration: none;
+      padding: 0.5em;
+    }
+    .partner-token__logo {
+      --logo-height: 6em;
+      --logo-width: 6em;
+    }
+    .partner-token__square-image {
+      height: var(--logo-height);
+      width: var(--logo-width);
+    }
+    .partner-token__description {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: flex;
+      flex-direction: column;
+      padding-left: 1em;
+      white-space: nowrap;
+
+    }
+    .partner-token__header {
+      font-size: 2em;
+      font-weight: 600;
+    }
+    .partner-token__text {
+      text-decoration: none;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
   </style>
 
 </head>
@@ -950,6 +1002,89 @@
     </div>
   </div>
     <a href="https://t.me/Forest_coordinator" style="margin-top: 2em" class="w3-button lescolor-accent w3-xlarge enroll-button" target="_blank">Остались вопросы?</a>
+  </div>
+  <div class="w3-container" style="padding:64px 16px" id="partners">
+    <h3 class="w3-center">НАШИ ПАРТНЁРЫ</h3>
+    <div class="token-holder">
+      <a href="https://t.me/turings_crossword" class="partner-token button" target="_blank">
+        <div class="partner-token__logo">
+          <img src="/img/crossword.jpg" alt="" class="partner-token__square-image"></img>
+        </div>
+        <div class="partner-token__description">
+          <div class="partner-token__header">
+            Кроссворд Тьюринга
+          </div>
+          <div class="partner-token__text">
+            Популярно о науке
+          </div>
+        </div>
+      </a>
+      <a href="https://t.me/turings_crossword" class="partner-token button" target="_blank">
+        <div class="partner-token__logo">
+          <img src="/img/crossword.jpg" alt="" class="partner-token__square-image"></img>
+        </div>
+        <div class="partner-token__description">
+          <div class="partner-token__header">
+            Кроссворд Тьюринга
+          </div>
+          <div class="partner-token__text">
+            Популярно о науке
+          </div>
+        </div>
+      </a>
+      <a href="https://t.me/turings_crossword" class="partner-token button" target="_blank">
+        <div class="partner-token__logo">
+          <img src="/img/crossword.jpg" alt="" class="partner-token__square-image"></img>
+        </div>
+        <div class="partner-token__description">
+          <div class="partner-token__header">
+            Кроссворд Тьюринга
+          </div>
+          <div class="partner-token__text">
+            Популярно о науке
+          </div>
+        </div>
+      </a>
+      <a href="https://t.me/turings_crossword" class="partner-token button" target="_blank">
+        <div class="partner-token__logo">
+          <img src="/img/crossword.jpg" alt="" class="partner-token__square-image"></img>
+        </div>
+        <div class="partner-token__description">
+          <div class="partner-token__header">
+            Кроссворд Тьюринга
+          </div>
+          <div class="partner-token__text">
+            Популярно о науке
+          </div>
+        </div>
+      </a>
+      <a href="https://t.me/turings_crossword" class="partner-token button" target="_blank">
+        <div class="partner-token__logo">
+          <img src="/img/crossword.jpg" alt="" class="partner-token__square-image"></img>
+        </div>
+        <div class="partner-token__description">
+          <div class="partner-token__header">
+            Кроссворд Тьюринга
+          </div>
+          <div class="partner-token__text">
+            Популярно о науке
+          </div>
+        </div>
+      </a>
+      <a href="https://t.me/turings_crossword" class="partner-token button" target="_blank">
+        <div class="partner-token__logo">
+          <img src="/img/crossword.jpg" alt="" class="partner-token__square-image"></img>
+        </div>
+        <div class="partner-token__description">
+          <div class="partner-token__header">
+            Кроссворд Тьюринга
+          </div>
+          <div class="partner-token__text">
+            Популярно о науке
+          </div>
+        </div>
+      </a>
+    </div>
   </div>
 </div>
 

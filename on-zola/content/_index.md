@@ -1,0 +1,3 @@
++++
+template = "landing/index.html"
++++

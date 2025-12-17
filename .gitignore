@@ -1,3 +1,4 @@
 .idea
 .index.html.kate-swp
 on-zola/public
+on-zola/templates/static_versions.generated.html

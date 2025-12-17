@@ -1,3 +1,5 @@
+{% import "static_versions.html" as v %}
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -58,7 +60,7 @@
         .bgimg-1 {
             background-position: center;
             background-size: cover;
-            background-image: url("../../../img/background6.jpg");
+            background-image: url("{{ v::link(to="img/background6.jpg") }}");
             min-height: 100%;
         }
 
@@ -524,7 +526,7 @@
 
             </div>
             <div class="w3-col w3-center l4">
-                <img class="w3-image w3-round-large" src="img/photo_2024-04-01_13-40-14.jpg" alt="Buildings" style="width:90%">
+                <img class="w3-image w3-round-large" src="{{ v::link(to="img/photo_2024-04-01_13-40-14.jpg") }}" alt="Buildings" style="width:90%">
             </div>
         </div>
     </div>

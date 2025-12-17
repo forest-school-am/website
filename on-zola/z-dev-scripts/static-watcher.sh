@@ -1,7 +1,23 @@
 ZOLA_ROOT="${ZOLA_ROOT:-".."}"
-GIT_DIR="ZOLA_ROOT/../"
 STATIC_DIR="$ZOLA_ROOT/static"
-CONFIG_TOML="$ZOLA_ROOT/-config.toml"
+STATIC_VERSIONS_OUTPUT="$ZOLA_ROOT/templates/static_versions.generated.html"
+FILE_TEMPLATE_HEAD=$(cat <<'END_FILE_TEMPLATE'
+{% macro get_version(filename) %}
+    {% set search = filename ~ " = " %}
+    {% for entry in [
+
+END_FILE_TEMPLATE
+)
+FILE_TEMPLATE_TAIL=$(cat <<'END_FILE_TEMPLATE'
+    ] %}
+        {% if entry is starting_with(search) %}
+            {{ entry | replace(from=search, to="") }}
+        {% endif %}
+    {% endfor %}
+{% endmacro get_version %}
+
+END_FILE_TEMPLATE
+)
 
 function escape() {
   # shellcheck disable=SC2001
@@ -59,8 +75,7 @@ function get_version() {
 function handle_write() {
   filename="$1"
   relname="$(realpath -s --relative-to="$STATIC_DIR" "$filename")"
-  echo "Updating $relname"
-  guarded_sed "$(make_sed_insert "$(format_name "$relname")" "$(format_value "$(get_version "$filename")")")" "$CONFIG_TOML"
+  files["$relname"]="$(get_version "$filename")"
 }
 
 function handle_event() {
@@ -77,18 +92,36 @@ function handle_event() {
   esac
 }
 
-function watch() {
-  inotifywait -q -m -r -e close_write -e delete "$STATIC_DIR" |
-  while read -r dir event filename _leftover; do
-    handle_event "$dir" "$filename" "$event";
-  done
-}
-
-function build() {
+function collect() {
   while IFS= read -r filename
   do
     handle_write "$filename"
   done < <(find "$STATIC_DIR" -type f)
 }
 
-build
+function output() {
+  {
+    echo "$FILE_TEMPLATE_HEAD"
+    for i in "${!files[@]}"
+    do
+      echo "        \"$i = ${files[$i]}\","
+    done
+    echo "$FILE_TEMPLATE_TAIL"
+  } > "$STATIC_VERSIONS_OUTPUT"
+}
+
+function watch_static() {
+  echo "Started static version watcher"
+  declare -A files
+  inotifywait -q -m -r -e close_write -e delete "$STATIC_DIR" |
+  while read -r dir event filename _leftover; do
+    handle_event "$dir" "$filename" "$event";
+    output
+  done
+}
+
+function build() {
+  declare -A files
+  collect
+  output
+}

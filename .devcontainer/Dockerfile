@@ -1,5 +1,7 @@
 # Use a base image
 FROM mcr.microsoft.com/devcontainers/base:ubuntu
+LABEL org.opencontainers.image.source=https://github.com/forest-school-am/website
+LABEL org.opencontainers.image.description="devcontainer"
 
 RUN apt-get update && apt-get install -y build-essential curl inotify-tools
 

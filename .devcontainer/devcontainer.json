@@ -1,7 +1,5 @@
 {
-  "build": {
-    "dockerfile": "Dockerfile"
-  },
+  "image": "ghcr.io/forest-school-am/website-devcontainer:latest",
   "customizations": {
     "vscode": {
       "extensions": [

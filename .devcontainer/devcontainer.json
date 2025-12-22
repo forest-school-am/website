@@ -1,5 +1,5 @@
 {
-  "image": "ghcr.io/forest-school-am/website-devcontainer:latest",
+  "image": "ghcr.io/rebenkoy/ressg:master",
   "customizations": {
     "vscode": {
       "extensions": [

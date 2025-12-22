@@ -1,3 +1,0 @@
-+++
-template = "landing/index.html"
-+++

@@ -1,4 +1,0 @@
-{% import "static_versions.generated.html" as static_versions %}
-{% macro link(to) -%}
-/{{to | urlencode_strict}}?v={{ static_versions::get_version(filename=to) | trim -}}
-{% endmacro %}

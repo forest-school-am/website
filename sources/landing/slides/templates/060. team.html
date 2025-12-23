@@ -1,0 +1,16 @@
+<!-- преподы -->
+<div class="w3-container" style="padding:64px 16px" id="team">
+    <h3 class="w3-center w3-content">{{ data.title }}</h3>
+    <p class="w3-center w3-large">{{ data.subtitle }}</p>
+    <div class="preps-slider-container">
+        <div class="swiffy-slider slider-nav-visible slider-item-reveal slider-item-show-n-preps slider-indicators-dark slider-indicators-outside slider-indicators-round slider-nav-dark slider-nav-outside
+                preps-slider">
+            <ul class="slider-container" style="padding-bottom: 20px;">
+                {{ blocks("slides/team", "slides/team/templates/card.html") }}
+            </ul>
+            <button type="button" class="slider-nav nav-hide-mobile"></button>
+            <button type="button" class="slider-nav nav-hide-mobile slider-nav-next"></button>
+        </div>
+    </div>
+    <p class="w3-center w3-large w3-content"> </p>
+</div>

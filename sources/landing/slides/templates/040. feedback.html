@@ -1,0 +1,25 @@
+<!-- Отзывы школьников -->
+<div id="reviews">
+    <h2 class="w3-center">{{ data.title }}</h2>
+    <div id="reviews-large" class="w3-container" style="padding: 64px 16px">
+        <div id="reviews-slider" class="swiffy-slider slider-nav-visible slider-nav-touch slider-item-show3 slider-indicators-dark slider-indicators-outside slider-indicators-round slider-nav-dark slider-nav-outside
+                  reviews-outerdiv reviews-outerdiv--collapsed">
+            <div class="slider-container
+                    reviews-innerdiv">
+                {{ blocks("slides/feedback", "slides/feedback/templates/tile.html") }}
+            </div>
+            <button type="button" class="slider-nav review-nav-element"></button>
+            <button type="button" class="slider-nav slider-nav-next review-nav-element"></button>
+            <div id="reviews-read-more" onclick="(() => {
+          document.getElementById('reviews-read-less').classList.remove('hidden');
+          document.getElementById('reviews-read-more').classList.add('hidden');
+          document.getElementById('reviews-slider').classList.remove('reviews-outerdiv--collapsed');
+        })()">Читать дальше</div>
+        </div>
+        <div id="reviews-read-less" class="hidden" onclick="(() => {
+          document.getElementById('reviews-read-more').classList.remove('hidden');
+          document.getElementById('reviews-read-less').classList.add('hidden');
+          document.getElementById('reviews-slider').classList.add('reviews-outerdiv--collapsed');
+        })()">Свернуть</div>
+    </div>
+</div>

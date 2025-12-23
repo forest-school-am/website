@@ -1,0 +1,613 @@
+ <!DOCTYPE html>
+<html>
+<head>
+  <title>Школа "Лес"</title>
+  <link rel="icon" type="image/x-icon" href="{{ static("img/favicon.svg") }}">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{{ static("w3.css") }}">
+  <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat"> -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap" rel="stylesheet">
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+
+  <link rel="stylesheet" href="{{ static("les.css") }}">
+
+  <script src="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/js/swiffy-slider.min.js" crossorigin="anonymous" defer></script>
+  <link href="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/css/swiffy-slider.min.css" rel="stylesheet" crossorigin="anonymous">
+
+  <style>
+    :root {
+      /*colors*/
+      --lescolor-main-fg:#fff!important;
+      --lescolor-main-bg:#4d7b57!important;
+      --lescolor-add-fg:#000!important;
+      --lescolor-add-bg:#d0e1f3!important;
+      --lescolor-accent-fg:#fff!important;
+      --lescolor-accent-bg:#f19501!important;
+      --lescolor-accent-bg--hover: #ffbd47 !important;
+      --lescolor-human-fg:#fff!important;
+      --lescolor-human-bg:#de3a48!important;
+      --lescolor-phys-fg:#fff!important;
+      --lescolor-phys-bg:#243156!important;
+      --lescolor-math-fg:#fff!important;
+      --lescolor-math-bg:#32689d!important;
+      --lescolor-bio-fg:#fff!important;
+      --lescolor-bio-bg:#22906a!important;
+      --lescolor-text-main-fg:#4d7b57!important;
+      --lescolor-text-add-fg:#d0e1f3!important;
+      --lescolor-text-accent-fg:#f19501!important;
+      --lescolor-text-human-fg:#de3a48!important;
+      --lescolor-text-phys-fg:#243156!important;
+      --lescolor-text-math-fg:#32689d!important;
+      --lescolor-text-bio-fg:#22906a!important;
+    }
+
+    html,body,h1,h2,h3,h4,h5,h6 {
+      font-family: "Montserrat", sans-serif;
+      font-weight: 500;
+    }
+
+    body, html {
+      height: 100%;
+      line-height: 1.8;
+    }
+
+    /* Full height image header */
+    .bgimg-1 {
+      background-position: center;
+      background-size: cover;
+      background-image: url("{{ static("img/background6.jpg") }}");
+      min-height: 100%;
+    }
+
+    .w3-bar .w3-button {
+      padding: 16px;
+    }
+
+    .w3-button:hover {
+      color:#000!important;
+      background-color:#d0e1f3!important;
+    }
+
+    .w3-border,li{
+      border-color: #32689d!important;
+    }
+
+    .is-style-reverse-mobile {
+      display: flex;
+      flex-wrap: wrap-reverse !important;
+    }
+
+    #faq .w3-button {
+      white-space: normal;
+    }
+
+    .faculties {
+      margin-top: 64px;
+      margin-bottom: 32px;
+      text-align: center;
+      padding: 0 8px;
+      display: flex;
+    }
+
+    @media (min-width: 993px) {
+      .faculties-media {
+        flex-direction: row;
+      }
+    }
+
+    @media (max-width: 993px) {
+      .faculties-media {
+        flex-direction: column;
+      }
+    }
+
+    .faculty {
+      padding: 12px 8px;
+    }
+
+    .courselist {
+      padding-right: 40px;
+      list-style-type: none;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .courselist>li {
+      text-align: center;
+      padding-bottom: 1em;
+    }
+
+    .slides > div:nth-child(2n+1) {
+      color:var(--lescolor-add-fg);
+      background-color:var(--lescolor-add-bg);
+    }
+
+    #reviews-read-more {
+      background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 30%, rgba(255,255,255,0) 100%);
+      display: flex;
+      justify-content: center;
+      padding-bottom: 1em;
+      padding-top: 1em;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      font-weight: bolder;
+      text-shadow: 0px 0px 30px white;
+    }
+    #reviews-read-less {
+      background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 30%, rgba(255,255,255,0) 100%);
+      display: flex;
+      justify-content: center;
+      padding-bottom: 1em;
+      padding-top: 1em;
+      width: 100%;
+      font-weight: bolder;
+      text-shadow: 0px 0px 30px white;
+    }
+
+    .hidden {
+      display: none;
+      visibility: hidden;
+    }
+    .reviews-outerdiv--collapsed {
+      max-height: 75vh;
+      overflow-y: hidden;
+    }
+
+
+    @media (min-width: 1310px) {
+      .reviews-outerdiv
+      {
+        display: flex;
+        /*align-items: center;*/
+        justify-content: center;
+        overflow-x: hidden;
+      }
+      .reviews-outerdiv--collapsed {
+        max-height: 80vh;
+        overflow-y: hidden;
+      }
+      .reviews-innerdiv
+      {
+          display: grid;
+          grid-gap: 1.5em;
+          grid-template-rows: repeat(10,9em);
+          grid-template-columns: repeat(4,20em);
+        overflow: visible;
+      }
+      .reviews-eachdiv
+      {
+          padding: 1rem 2rem;
+          /*border-radius: 0.8rem;*/
+          box-shadow: 5px 5px 20px #6d6b6b6b;
+          color: white;
+          min-width: 320px;
+      }
+      .lera-review
+      {
+          background: var(--lescolor-add-bg);
+          color: var(--lescolor-add-fg);
+          grid-column: 1/span 3;
+          grid-row: 1/span 2;
+      }
+      .varya-review
+      {
+          background: var(--lescolor-main-bg);
+          color: var(--lescolor-main-fg);
+          grid-column: 4/span 1;
+          grid-row: 1/ span 3;
+      }
+      .david-review
+      {
+          background: var(--lescolor-phys-bg);
+          color: var(--lescolor-phys-fg);
+          grid-column: 1/span 3;
+          grid-row: 3/span 3;
+      }
+      .aleksandr-review
+      {
+          background: var(--lescolor-main-bg);
+          color: var(--lescolor-main-fg);
+          grid-column: 2/span 3;
+          grid-row: 6/ span 3;
+      }
+      .ekaterina-review
+      {
+          background: var(--lescolor-phys-bg);
+          color: var(--lescolor-phys-fg);
+          grid-column: 1/span 1;
+          grid-row: 8/span 3;
+      }
+      .asi-review
+      {
+          background: white;
+          color: black;
+          grid-column: 4/span 1;
+          grid-row: 4/span 2;
+      }
+      .natalia-review
+      {
+          background: white;
+          color: black;
+          grid-column: 1/span 1;
+          grid-row: 6/span 2;
+      }
+      .anna-review
+      {
+          background: var(--lescolor-add-bg);
+          color: var(--lescolor-add-fg);
+          grid-column: 2/span 3;
+          grid-row: 9/span 2;
+
+      }
+      .userdetails
+      {
+          display: flex;
+      }
+      .imgbox
+      {
+          margin-right: 1rem;
+      }
+      .imgbox img
+      {
+          border-radius: 50%;
+          width: 2rem;
+          border: 2px solid #cec5c5;
+      }
+      .detbox
+      {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+      }
+      .detbox p
+      {
+          margin: 0;
+      }
+      .detbox .name
+      {
+          font-size: 0.9rem;
+          margin-bottom: 0.1rem;
+          font-weight: 600;
+      }
+      .detbox .designation
+      {
+          font-size: 0.8rem;
+          text-decoration: underline;
+      }
+      .review h4
+      {
+          font-size: 1.4rem;
+          font-weight: 600;
+          line-height: 1.5;
+          margin-bottom: 0.8rem;
+      }
+      .review p
+      {
+          font-size: 0.95rem;
+          font-weight: 500;
+          opacity: 90%;
+          line-height: 1.5;
+      }
+      .review-nav-element {
+        display: none;
+      }
+    }
+
+
+    .slider-card {
+      box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
+      height: 100%;
+      margin-bottom: 10px;
+    }
+    .slider-card-holder {
+      height: 100%;
+    }
+    .preps-slider {
+      width: 85vw;
+      max-width: 1400px;
+      position: relative;
+      overflow: hidden;
+    }
+    @media (min-width: 1275px) {
+      .slider-item-show-n-preps {
+        --swiffy-slider-item-count: 4;
+      }
+      .nav-hide-mobile {
+        display: flex;
+      }
+    }
+    @media (max-width: 1275px) {
+      .slider-item-show-n-preps {
+        --swiffy-slider-item-count: 2;
+      }
+      .nav-hide-mobile {
+        display: flex;
+      }
+    }
+    @media (max-width: 600px) {
+      .slider-item-show-n-preps {
+        --swiffy-slider-item-count: 1;
+      }
+      .nav-hide-mobile {
+        display: none;
+      }
+    }
+    .preps-slider-container {
+      display: grid;
+      place-items: center;
+    }
+
+    #message-us {
+        /*transform: scale(2, 2);*/
+        position: fixed;
+        background-color: var(--lescolor-accent-bg);
+        color: #fff;
+        border-radius: 50%;
+        box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.3);
+        transition: transform .1s;
+      }
+
+    #message-us:hover {
+      transform: scale(1.1);
+    }
+
+    @media (min-width: 600px) {
+      #message-us {
+        width: 6rem;
+        height: 6rem;
+        top: calc(100vh - 7rem);
+        left: calc(100vw - 7rem);
+      }
+
+      #message-us > i {
+        font-size: 4rem;
+        position: relative;
+        left: 1rem;
+        top: 1.2rem;
+        transform: scale(-1, 1);
+      }
+    }
+
+    @media (max-width: 600px) {
+      #message-us {
+        width: 4rem;
+        height: 4rem;
+        top: calc(100vh - 5rem);
+        left: calc(100vw - 5rem);
+      }
+
+      #message-us > i {
+        font-size: 2.5rem;
+        position: relative;
+        left: 0.75rem;
+        top: 0.85rem;
+        transform: scale(-1, 1);
+      }
+    }
+
+    .enroll-button {
+      box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.16);
+      background-color: var(--lescolor-accent-bg);
+      transition: transform .1s;
+    }
+
+    .enroll-button:hover {
+      background-color: var(--lescolor-accent-bg) !important;
+      color: #fff !important;
+      transform: scale(1.07);
+    }
+
+    .button {
+      box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.16);
+      transition: transform .1s;
+    }
+
+    .button:hover {
+      transform: scale(1.02);
+    }
+    .button:active {
+      transform: scale(1);
+    }
+
+    .table-icon {
+      padding-right: 1em;
+      text-align: right;
+    }
+
+    .high-break {
+      margin-bottom: 1.5em;
+    }
+    @media (min-width: 1675px) {
+      .token-holder-config {
+        --n-columns: 3;
+      }
+    }
+    @media (max-width: 1675px) {
+      .token-holder-config {
+        --n-columns: 2;
+      }
+    }
+    @media (max-width: 1000px) {
+      .token-holder-config {
+        --n-columns: 1;
+      }
+    }
+    .token-holder {
+      display: grid;
+      grid-template-columns: repeat(var(--n-columns), minmax(0, 1fr));
+      column-gap: 3em;
+      grid-auto-rows: 1fr;
+      row-gap: 1em;
+      padding: 1em;
+    }
+    .partner-token {
+      display: flex;
+      text-decoration: none;
+      padding: 0.5em;
+    }
+    .partner-token__logo {
+      --logo-height: 6em;
+      --logo-width: 6em;
+    }
+    .partner-token__square-image {
+      height: var(--logo-height);
+      width: var(--logo-width);
+
+    }
+    .partner-token__description {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: flex;
+      flex-direction: column;
+      padding-left: 1em;
+      white-space: nowrap;
+
+    }
+    .partner-token__header {
+      font-size: 1.3em;
+      font-weight: 600;
+      word-break: normal;
+      white-space: normal;
+    }
+    .partner-token__text {
+      text-decoration: none;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      word-break: normal;
+      white-space: normal;
+    }
+
+  </style>
+
+</head>
+
+
+<script src="https://kit.fontawesome.com/ede2ab081b.js" crossorigin="anonymous"></script>
+
+<body>
+{% include "navbar.html" %}
+{% include "header.html" %}
+
+<div class="slides">
+  {{ blocks("slides") }}
+
+</div>
+
+<a id="message-us" href="https://t.me/Forest_coordinator" target="_blank">
+  <i class="fa-regular fa-message"></i>
+</a>
+<!-- Footer -->
+<footer class="w3-row w3-center lescolor-phys" style="padding: 16px;">
+  <div class="w3-third">
+    <h5 style="font-weight: bold;">ООО "Палаточный лагерь Лес"</h5>
+    <p>г.Гюмри, Армения</p>
+    <a href="#" onclick="cookieconsent.openPreferencesCenter()" id="open_preferences_center ">Обновить настройки cookie</a>
+  </div>
+  <div class="w3-third">
+    <h5 style="font-weight: bold;">Документы</h5>
+    <p><a href="{{ static("docs/privacy.pdf") }}" target="_blank">Политика конфиденциальности</a></p>
+    <p><a href="{{ static("docs/ethics.pdf") }}" target="_blank">Этический кодекс</a></p>
+  </div>
+  <div class="w3-third">
+    <div class="w3-xxlarge w3-section">
+      <a href="https://click.tgtrack.ru/1b337236f6c96?tag=website" target="_blank"><i class="fa-brands fa-telegram lescolor-text-hover-accent"></i></a>
+      <a href="https://www.facebook.com/forest_school_am" target="_blank"><i class="fa-brands fa-facebook lescolor-text-hover-accent"></i></a>
+      <a href="https://www.instagram.com/forest_school_am/" target="_blank"><i class="fa-brands fa-instagram lescolor-text-hover-accent"></i></a>
+      <a href="https://vk.com/forest_school_am" target="_blank"><i class="fa-brands fa-vk lescolor-text-hover-accent"></i></a>
+    </div>
+  </div>
+</footer>
+
+
+<script src="{{ static("carousel.js") }}"></script>
+<script>
+// Toggle between showing and hiding the sidebar when clicking the menu icon
+var mySidebar = document.getElementById("mySidebar");
+
+function w3_open() {
+  if (mySidebar.style.display === 'block') {
+    mySidebar.style.display = 'none';
+  } else {
+    mySidebar.style.display = 'block';
+  }
+}
+
+// Close the sidebar with the close button
+function w3_close() {
+    mySidebar.style.display = "none";
+}
+
+function accordeon(id) {
+  var x = document.getElementById(id);
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else {
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
+
+
+</script>
+</body>
+
+
+
+
+<!-- Cookie Consent by TermsFeed https://www.TermsFeed.com -->
+
+<script type="text/javascript" src="https://www.termsfeed.com/public/cookie-consent/4.2.0/cookie-consent.js" charset="UTF-8"></script>
+
+
+<script type="text/javascript" charset="UTF-8">
+document.addEventListener('DOMContentLoaded', function () {
+cookieconsent.run({"notice_banner_type":"simple","consent_type":"express","palette":"light","language":"ru","page_load_consent_levels":["strictly-necessary"],"notice_banner_reject_button_hide":false,"preferences_center_close_button_hide":false,"page_refresh_confirmation_buttons":false,"website_name":"forest-school.am"});
+});
+</script>
+
+<!-- Google -->
+<script type="text/plain" data-cookie-consent="tracking" async src="https://www.googletagmanager.com/gtag/js?id=G-H3HP8MVH42"></script>
+<script type="text/plain" data-cookie-consent="tracking">
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-H3HP8MVH42');
+</script>
+<!-- end of Google-->
+
+<!-- Goatcounter -->
+<script type="text/plain" data-cookie-consent="tracking" data-goatcounter="https://stats.forest-school.am/count"
+        async src="//gc.zgo.at/count.js"></script>
+<!-- end of Goatcounter-->
+
+<!-- Yandex -->
+<script type="text/plain" data-cookie-consent="tracking">
+  (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+  m[i].l=1*new Date();
+  for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+  k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+  (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+  ym(99978701, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true,
+        webvisor:true
+  });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/99978701" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- end of Yandex-->
+
+<noscript>Free cookie consent management tool by <a href="https://www.termsfeed.com/" rel="nofollow">TermsFeed</a></noscript>
+<!-- End Cookie Consent by TermsFeed https://www.TermsFeed.com -->
+
+<!-- Below is the link that users can use to open Preferences Center to change their preferences. Do not modify the ID parameter. Place it where appropriate, style it as needed. -->
+
+ </html>
+

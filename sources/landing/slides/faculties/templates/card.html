@@ -1,9 +1,9 @@
 <div class="w3-container w3-col l3 m12 {{ data.class }} faculty">
-    <i class="fa fa-heart w3-padding w3-jumbo"></i>
+    <i class="fa {{ data.icon }} w3-padding w3-jumbo"></i>
     <h3>В программе<br>{{ data.title }}</h3>
     <div class="courselist-holder">
-        <ul class="courselist" style="text-align: left">
-            {{ data.courses }}
-        </ul>
+        <div class="courselist" style="text-align: left">
+            {{ data.courses | try_add_class("courselist") }}
+        </div>
     </div>
 </div>

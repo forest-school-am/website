@@ -121,6 +121,28 @@
       padding-bottom: 1em;
     }
 
+    .faq-entry {
+
+    }
+    .question {
+      box-sizing: border-box;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .question::after {
+      content: '';
+      border: solid #0000CD;
+      border-width: 0 3px 3px 0;
+      display: inline-block;
+      padding: 4px;
+      transition: 0.3s;
+      transform: rotate(45deg);
+    }
+    .faq-entry[open] > .question::after {
+      transform: rotate(-135deg);
+    }
+
     .slides > div:nth-child(2n+1) {
       color:var(--lescolor-add-fg);
       background-color:var(--lescolor-add-bg);

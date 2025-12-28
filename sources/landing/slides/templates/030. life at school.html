@@ -6,9 +6,9 @@
         </div>
         <div class="w3-col l8" style="padding:10px 0px">
             <h3>{{ data.title }}</h3>
-            <p class="w3-large">
-                {{ data.content }}
-            </p>
+            <div class="w3-large">
+                {{ data.content | try_add_class("high-break") }}
+            </div>
             <a href="https://t.me/Forest_coordinator" class="w3-button lescolor-accent w3-xlarge enroll-button" target="_blank">Задать вопрос</a>
         </div>
     </div>

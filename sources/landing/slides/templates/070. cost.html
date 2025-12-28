@@ -1,30 +1,16 @@
 <!-- стоимость -->
 <div class="w3-container" style="padding:64px 16px" id="pricing">
     <div class="w3-center">
-        <h3 class="w3-center">В 2025 году стоимость участия в школе составила 350 000 драм (&asymp;870$/76400₽).</h3>
-        <h5 class="w3-center">Стоимость участия в 2026 году будет объявлена в конце января 2026 года</h5>
+        <h3 class="w3-center">{{ data.title }}</h3>
+        <h5 class="w3-center">{{ data.subtitle }}</h5>
         <!--   <h5 class="w3-center lescolor-text-math">При подаче заявки после 31 мая скидка за раннюю заявку не предоставляется.</h5> -->
     </div>
-    <div class="w3-row-padding w3-center" style="margin-top:64px">
+    <div class="w3-row-padding w3-center lescolor-text-phys" style="margin-top:64px">
         <div class="w3-half">
-            <ul class="w3-ul w3-border lescolor-text-phys">
-                <li><h4>В стоимость школы входит:</h4></li>
-                <li>Посещение любого количества учебных занятий и участие во внеурочной деятельности</li>
-                <li>Тьюторское сопровождение</li>
-                <li>Участие в дополнительных активностях: тир, прогулки по горам, посещение армянской фермы</li>
-                <li>Четырёхразовое питание</li>
-                <li>Проживание на территории кемпинга</li>
-                <li>Сопровождение при авиаперелете для тех, кто летит из Москвы</li>
-                <li>Трансфер из аэропортов Еревана или Гюмри на место проведения школы</li>
-            </ul>
+            {{ data.included | try_add_class("w3-ul w3-border") }}
         </div>
         <div class="w3-half">
-            <ul class="w3-ul w3-border lescolor-text-phys">
-                <li><h4>В стоимость школы НЕ входит:</h4></li>
-                <li>Авиабилеты</li>
-                <li>Дополнительные экскурсии по достопримечательностям региона</li>
-                <li>Палатка, спальник, пенка <br> (мы просим участников школы брать их с собой, но, если такой возможности нет, постараемся помочь с этим)</li>
-            </ul>
+            {{ data.excluded | try_add_class("w3-ul w3-border") }}
         </div>
     </div>
 </div>

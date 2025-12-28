@@ -1,57 +1,6 @@
 <div class="w3-container" style="padding:64px 16px" id="partners">
-    <h3 class="w3-center">НАШИ ПАРТНЁРЫ</h3>
+    <h3 class="w3-center">{{ data.title }}</h3>
     <div class="token-holder-config token-holder">
-        <a href="https://t.me/turings_crossword" class="partner-token button" target="_blank">
-            <div class="partner-token__logo">
-                <img src="{{ static("img/crossword.jpg") }}" alt="" class="partner-token__square-image"></img>
-            </div>
-            <div class="partner-token__description">
-                <div class="partner-token__header">
-                    Кроссворд Тьюринга
-                </div>
-                <div class="partner-token__text">
-                    Популярно о науке
-                </div>
-            </div>
-        </a>
-        <a href="https://t.me/opportunitiesalarm" class="partner-token button" target="_blank">
-            <div class="partner-token__logo">
-                <img src="{{ static("img/vozmozhnosti.jpg") }}" alt="" class="partner-token__square-image"></img>
-            </div>
-            <div class="partner-token__description">
-                <div class="partner-token__header">
-                    Возможности для школьников
-                </div>
-                <div class="partner-token__text">
-                    Анонсы мероприятий для школьников
-                </div>
-            </div>
-        </a>
-        <a href="https://vk.com/llshforever" class="partner-token button" target="_blank">
-            <div class="partner-token__logo">
-                <img src="{{ static("img/llsh.png") }}" alt="" class="partner-token__square-image"></img>
-            </div>
-            <div class="partner-token__description">
-                <div class="partner-token__header">
-                    ЛЛШ
-                </div>
-                <div class="partner-token__text">
-                    Летняя Лингвистическая Школа
-                </div>
-            </div>
-        </a>
-        <a href="https://kidsincamp.ru/camp/forest-school" class="partner-token button" target="_blank" style="letter-spacing:normal;">
-            <div class="partner-token__logo">
-                <img src="https://kidsincamp.ru/img/img-partners-logo.png" alt="kidsincamp.ru" class="partner-token__square-image">
-            </div>
-            <div class="partner-token__description">
-                <div class="partner-token__header">
-                    kidsincamp.ru
-                </div>
-                <div class="partner-token__text">
-                    Ищите нас здесь
-                </div>
-            </div>
-        </a>
+        {{ blocks(data.blocks, "slides/partners/templates/card.html") }}
     </div>
 </div>

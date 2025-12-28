@@ -6,5 +6,12 @@
         "ms-python.python"
       ]
     }
-  }
+  },
+  "forwardPorts": [8080],
+  "portsAttributes": {
+    "8080": {
+      "label": "reSsg-preview"
+    }
+  },
+  "postCreateCommand": "reSsg > /var/log/reSsg &"
 }

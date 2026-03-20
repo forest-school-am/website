@@ -1268,6 +1268,12 @@ cookieconsent.run({"notice_banner_type":"simple","consent_type":"express","palet
 
 <!-- Below is the link that users can use to open Preferences Center to change their preferences. Do not modify the ID parameter. Place it where appropriate, style it as needed. -->
 <script>
+
+  const rounding_map = {
+    "rub": 100,
+    "usd": 10,
+  }
+
   async function fetchAsync (url) {
     let response = await fetch(url);
     await new Promise(resolve => setTimeout(resolve, 100));
@@ -1287,7 +1293,8 @@ cookieconsent.run({"notice_banner_type":"simple","consent_type":"express","palet
   function update_display(display, value_str, value_num, amd_map) {
     let cur = display.dataset.exchangeCurrency;
     if (cur !== "amd" && amd_map !== undefined && amd_map[cur] !== undefined) {
-      display.innerHTML = Math.round(value_num * amd_map[cur]);
+      let rounding = rounding_map[cur] || 1;
+      display.innerHTML = Math.round(value_num * amd_map[cur] / rounding) * rounding;
     }
   }
 

@@ -6,7 +6,7 @@
 .lescolor-phys,.lescolor-hover-phys:hover{color:#fff!important;background-color:#5b5da8!important}
 .lescolor-math,.lescolor-hover-math:hover{color:#fff!important;background-color:#3a96bd!important}
 .lescolor-bio,.lescolor-hover-bio:hover{color:#fff!important;background-color:#22906a!important}
-
+.lescolor-text-on-light-blue{color: var(--lescolor-footer)}
 .lescolor-text-main,.lescolor-text-hover-main:hover{color:#4d7b57!important}
 .lescolor-text-add,.lescolor-text-hover-add:hover{color:#d0e1f3!important}
 .lescolor-text-accent,.lescolor-text-hover-accent:hover{color:#f19501!important}
